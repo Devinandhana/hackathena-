@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>PhishDetector</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/newlogo.jpg" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/style.css" rel="stylesheet">
+
+  <!-- Custom Black Theme CSS -->
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+    .form-control {
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #555;
+    }
+    .form-control::placeholder {
+      color: #aaa;
+    }
+    button {
+      background-color: #444;
+      color: #fff;
+      border: 1px solid #555;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #666;
+    }
+    .faq-list .icon-help {
+      color: #fff;
+    }
+    .faq-list a {
+      color: #fff;
+    }
+    .faq-list .collapse {
+      background-color: #222;
+      color: #fff;
+    }
+    .section-title h2, .section-title h3, .section-title h5, .section-title h6 {
+      color: #fff;
+    }
+    .section-title p {
+      color: #ddd;
+    }
+    #hero {
+      background: linear-gradient(135deg, #1a1a1a, #000);
+      padding: 100px 0;
+    }
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    #hero .form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    #hero .form-control {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+    }
+    #hero .form-control::placeholder {
+      color: #ccc;
+    }
+    #hero button {
+      background: #007bff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    #hero button:hover {
+      background: #0056b3;
+    }
+    #about {
+      padding: 100px 0;
+    }
+    #about .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    #about .section-title p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    #about .team-member {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    #about .team-member:hover {
+      transform: translateY(-10px);
+    }
+    #about .team-member h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    #about .team-member p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+    footer {
+      background: #1a1a1a;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer .social-links a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    footer .social-links a:hover {
+      color: #007bff;
+    }
+    footer .copyright {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      
+      <h1 class="logo mr-auto"><a href="{{ url_for('home') }}">PhishDetector</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="{{ url_for('home') }}" class="logo mr-auto"><img src="static/assets/img/newlogo.jpg" alt="" class="img-fluid"></a>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a onclick="scrolldiv()">About</a></li>
+          <li class="drop-down"><a href="{{ url_for('home') }}">Help</a>
+            <ul>
+              <!-- <li><a href="#">For Future Reference</a></li> -->
+            </ul>
+          </li>
+          <!-- <li><a href="#">Future Reference</a></li> -->
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
+      <h1>FAKE WEBSITE DETECTION</h1>
+      <form action="/result" method="POST" role="form" class="form">
+        <div class="row no-gutters">
+          <div class="col-md-6 form-group pr-md-1">
+              <input type="url" name="name" class="form-control" id="name" placeholder="Enter a URL link in format http or https" required>
+          </div>
+        </div>
+        <div class="text-center"><button type="submit">Scan URL</button></div>
+        <p>
+          {% if name %}
+          <b><p>{{name[0]}}</p></b>
+          <h2 style="color:blue;">Website is {{name[1]}} to use</h2><br>
+            {% if name[3] %}
+            <button class="button1" onclick="window.open('{{name[0]}}')" target="_blank" >{{name[2]}}</button><br>
+            {% else %}
+            <button class="button2" onclick="window.open('{{name[0]}}')" target="_blank" >{{name[2]}}</button><br>
+            {% endif %}
+          {% endif %}
+      </p>
+      </form> 
+      <img src="static\assets\img\Phishing.gif" class="img-fluid hero-img" alt="" data-aos="zoom-in" data-aos-delay="150"><br><br><br>
+    </div>
+  </section><!-- End Hero -->
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>About PhishDetector</h2>
+        <p>Phishing is an internet scam in which an attacker sends out fake messages that look to come from a trusted source. A URL or file will be included in the mail, which when clicked will steal personal information or infect a computer with a virus. Phish Detector is a project
+            which aims to help reduce phishing attack by helping internet users authenticate URL link by testing if it is phishing or legitimate. The progress of validating a Website URL for phishing or legitimate has gone through several Machine learning models. 
+        </p>                
+        <h3>About Us</h3>
+        <p>
+          We are Computer Science students from SCMS College, passionate about technology and innovation. Our journey is driven by curiosity and a desire to solve real-world problems through coding, design, and cybersecurity. With a strong foundation in software development, we aim to build solutions that make an impact. Whether it’s exploring new programming languages, designing intuitive user interfaces, or diving into cybersecurity challenges, we are always eager to learn and grow.
+        </p>
+        <h4>Team Members</h4>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="team-member">
+              <h4>A Sreenandana Panangattu</h4>
+              <p>Lead Developer</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="team-member">
+              <h4>Anugraha Jeejo</h4>
+              <p>UI/UX Designer</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="team-member">
+              <h4>Devinandhana VS</h4>
+              <p>Data Scientist</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="team-member">
+              <h4>Anshidha</h4>
+              <p>Security Analyst</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End About Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>PhishDetector</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+  <script>
+    function scrolldiv() {
+        var elem = document.getElementById("about");
+        elem.scrollIntoView();
+    }
+  </script>
+
+</body>
+
+</html>
